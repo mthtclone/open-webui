@@ -27,7 +27,6 @@
 		settings,
 		user,
 		workspaceActions,
-		workspaceCounts
 	} from '$lib/stores';
 	import { WEBUI_API_BASE_URL } from '$lib/constants';
 	import {
@@ -234,7 +233,6 @@
 			if (res) {
 				models = res.items;
 				total = res.total;
-				workspaceCounts.update((counts) => ({ ...counts, models: total }));
 
 				// get tags
 				const fetchedTags = await getModelTags(localStorage.token).catch((error) => {

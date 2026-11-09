@@ -17,7 +17,7 @@
 	import { onMount, getContext, tick, onDestroy } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import type { i18n as i18nType } from 'i18next';
-	import { WEBUI_NAME, config, user, workspaceActions, workspaceCounts } from '$lib/stores';
+	import { WEBUI_NAME, config, user, workspaceActions } from '$lib/stores';
 	import { COMMUNITY_ORIGINS } from '$lib/constants';
 
 	import {
@@ -205,7 +205,6 @@
 			if (res) {
 				prompts = res.items;
 				total = res.total;
-				workspaceCounts.update((counts) => ({ ...counts, prompts: total }));
 
 				// get tags
 				const fetchedTags = await getPromptTags(localStorage.token).catch((error) => {

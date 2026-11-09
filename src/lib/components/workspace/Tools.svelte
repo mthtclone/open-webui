@@ -23,7 +23,6 @@
 		tools as _tools,
 		user,
 		workspaceActions,
-		workspaceCounts
 	} from '$lib/stores';
 
 	import { goto } from '$app/navigation';
@@ -200,7 +199,6 @@
 			return direction * ((a.updated_at ?? 0) - (b.updated_at ?? 0));
 		});
 
-		workspaceCounts.update((counts) => ({ ...counts, tools: filteredItems.length }));
 	};
 
 	const setSortKey = (key: string) => {

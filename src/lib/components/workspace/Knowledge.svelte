@@ -16,7 +16,7 @@
 
 	const i18n = getContext<Writable<i18nType>>('i18n');
 
-	import { WEBUI_NAME, user, workspaceActions, workspaceCounts } from '$lib/stores';
+	import { WEBUI_NAME, user, workspaceActions } from '$lib/stores';
 	import {
 		deleteKnowledgeById,
 		searchKnowledgeBases,
@@ -173,7 +173,6 @@
 		if (res) {
 			console.log(res);
 			total = res.total;
-			workspaceCounts.update((counts) => ({ ...counts, knowledge: total }));
 			const pageItems: KnowledgeListItem[] = res.items ?? [];
 
 			if ((pageItems ?? []).length === 0) {

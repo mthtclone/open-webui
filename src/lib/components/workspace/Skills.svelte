@@ -23,7 +23,6 @@
 		user,
 		skills as _skills,
 		workspaceActions,
-		workspaceCounts
 	} from '$lib/stores';
 	import { goto } from '$app/navigation';
 	import {
@@ -206,7 +205,6 @@
 			if (res) {
 				filteredItems = res.items;
 				total = res.total;
-				workspaceCounts.update((counts) => ({ ...counts, skills: total }));
 			}
 		} catch (err) {
 			console.error(err);
